@@ -20,6 +20,10 @@ public class UserChecker {
     private boolean check() {
         String winUser = System.getProperty("user.name");
         File pathToBase = new File("C:\\users\\" + winUser + "\\Desktop\\usersBase\\");
+        if (!pathToBase.exists()) {
+            File dir = new File(pathToBase.getAbsolutePath());
+            dir.mkdir();
+        }
         File[] files = pathToBase.listFiles();
         assert files != null;
         for (File file : files) {
